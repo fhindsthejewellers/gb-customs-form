@@ -1,15 +1,22 @@
-Composer Library Template
+GB Customs Forms
 =========================
 
-If you are trying to create a new PHP Composer library, whether it will be going to submitted to packagist.org or just in your Github account, this template of files will surely help you make the process a lot easier and faster.
+This library produces FPDF objects containing CN22 or CN23 forms.
 
-Features
---------
+Have a look in the examples folder.
 
-* PSR-4 autoloading compliant structure
-* Unit-Testing with PHPUnit
-* Comprehensive Guides and tutorial
-* Easy to use to any framework or even a plain php file
+The basic syntax is as follows:
+```
+$form = new \fhindsthejewellers\GBCustomsForm\CustomsManager($products,$details);
 
+$type = $form->GetType();
 
-I encourage that you put more information on this readme file instead of leaving it as is. See [How to make a README file](http://www.darwinbiler.com/designing-and-making-the-readme-file-for-your-github-repository/) for more info.
+$pdf = $form->GetPDF();
+```
+Where $products is an array of products and $details is an array of details about the parcel
+
+The CustomsManager class also provides a couple of static methods:
+
+* IsCn22FormPossible(array) : bool - Tells you if these products will allow you to make the simplar CN22 form. CN23 needs more information passed in the $details array.
+* ValidateProductArray(array) : array - This will pass back your product array and tell you if the names are too long
+
