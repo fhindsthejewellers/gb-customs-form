@@ -1,6 +1,8 @@
 GB Customs Forms
 =========================
 
+This library is under development and the interface is not stable!
+
 This library produces FPDF objects containing CN22 or CN23 forms.
 
 Have a look in the examples folder.

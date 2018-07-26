@@ -186,15 +186,15 @@ class CustomsFormCN23 extends CustomsForm {
         foreach ($products as $key=>$product) {
             //echo $this->pdf->GetStringWidth($description) . PHP_EOL;
             $mass = $product["itemMass"]*$product["salesQty"];
-            $value = $product["unitGrossPaid"]*$product["salesQty"];
+            $value = $product["value"]["value"]*$product["salesQty"];
             $this->totalProductMass += $mass;
             $this->totalValue += $value;
-            $currency = $product["currency"];
+            $currency = $product["value"]["currency"];
             
-            if (isset($this->totalValueCurrency) and $this->totalValueCurrency != $product["currency"]) {
+            if (isset($this->totalValueCurrency) and $this->totalValueCurrency != $product["value"]["currency"]) {
                 throw new Exception("You can't mix currencies for products");
             } else {
-                $this->totalValueCurrency = $product["currency"];
+                $this->totalValueCurrency = $product["value"]["currency"];
             }
             
             if ($key<4) {
@@ -249,7 +249,7 @@ class CustomsFormCN23 extends CustomsForm {
         foreach ($this->overrun as $product) {
             $this->pdf->SetXY(26.5,$this->pdf->GetY()+8);
             $mass = $product["itemMass"]*$product["salesQty"];
-            $value = $product["unitGrossPaid"]*$product["salesQty"];
+            $value = $product["value"]["value"]*$product["salesQty"];
             $descfont = 8;
             while ($this->pdf->GetStringWidth($product["name"]) > self::DESCWIDTH) {
                 $descfont--;
@@ -262,7 +262,7 @@ class CustomsFormCN23 extends CustomsForm {
             $this->pdf->SetFont('Courier','',8);
             $this->pdf->Cell(31.5,0,$mass,0,0);
             $this->pdf->SetFont('Courier','',8);
-            $this->pdf->Cell(31.5,0,$value.$product["currency"],0,0);
+            $this->pdf->Cell(31.5,0,$value.$product["value"]["currency"],0,0);
             if ($this->goodsType==self::MERCHANDISE or $this->goodsType==self::COMMERCIALSAMPLE or $this->goodsType==self::OTHER) {
                 $this->pdf->SetFont('Courier','',8);
                 $this->pdf->Cell(44,0,substr($product["intrastat_code"],0,6),0,0);

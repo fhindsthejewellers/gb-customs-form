@@ -76,14 +76,14 @@ class CustomsFormCN22 extends CustomsForm {
             }
             //echo $this->pdf->GetStringWidth($description) . PHP_EOL;
             $mass = $product["itemMass"]*$product["salesQty"];
-            $value = $product["unitGrossPaid"]*$product["salesQty"];
+            $value = $product["value"]["value"]*$product["salesQty"];
             $this->totalProductMass += $mass;
             $this->totalValue += $value;
             
-            if (isset($this->totalValueCurrency) and $this->totalValueCurrency != $product["currency"]) {
+            if (isset($this->totalValueCurrency) and $this->totalValueCurrency != $product["value"]["currency"]) {
                 throw new \Exception("You can't mix currencies for products");
             } else {
-                $this->totalValueCurrency = $product["currency"];
+                $this->totalValueCurrency = $product["value"]["currency"];
             }
             
             if ($key!=0){
@@ -100,7 +100,7 @@ class CustomsFormCN22 extends CustomsForm {
             $this->pdf->SetFont('Courier','',8);
             $this->pdf->Cell(19,0,$mass,0,0);
             $this->pdf->SetFont('Courier','',8);
-            $this->pdf->Cell(15,0,$value.$product["currency"],0,0);
+            $this->pdf->Cell(15,0,$value.$product["value"]["currency"],0,0);
             
         }
         $this->pdf->SetXY(4,74);

@@ -11,28 +11,37 @@ $products = array(
         "salesQty" => 1,
         "name" => 'Silver Raindrop Earrings',
         "itemMass" => 0.001,
-        "unitGrossPaid" => 6.95,
         "intrastat_code" => 91011100,
-        "currency" => 'NZD',
-        "origin_country" => 'GB'
+        "origin_country" => 'GB',
+        "value" => array (
+            "value" => 6.95,
+            "currency" => "NZD",
+            "exchangeRate" => "1.3"
+        )
     ),
     array(
         "salesQty" => 2,
         "name" => 'Silver Earring',
         "itemMass" => 0.1,
-        "unitGrossPaid" => 12.95,
         "intrastat_code" => 91011101,
-        "currency" => 'NZD',
-        "origin_country" => 'GB'
+        "origin_country" => 'GB',
+        "value" => array (
+            "value" => 6.95,
+            "currency" => "NZD",
+            "exchangeRate" => "1.3"
+        )
     ),
     array(
         "salesQty" => 2,
         "name" => 'Silver Earrings with Emeralds',
         "itemMass" => 0.1,
-        "unitGrossPaid" => 12.95,
         "intrastat_code" => 91011102,
-        "currency" => 'NZD',
-        "origin_country" => 'GB'
+        "origin_country" => 'GB',
+        "value" => array (
+            "value" => 6.95,
+            "currency" => "NZD",
+            "exchangeRate" => "1.3"
+        )
     ),
 
 );

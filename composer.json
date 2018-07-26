@@ -1,6 +1,6 @@
 {
     "name": "fhindsthejewellers/gb-customs-form",
-    "description": "Passes back FPFF objects containing CN22 and CN23 GB customs forms",
+    "description": "Takes Product and Shipment information and passes back an FPDF object containing CN22 or CN23 GB customs forms",
     "keywords": ["pdf", "customs", "uk", "gb"],
     "license": "LGPL-3.0-or-later",
     "authors": [

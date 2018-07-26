@@ -32,19 +32,22 @@ class CustomsManager {
         $cn22 = self::IsCn22FormPossible($product);
         
         if ($cn22) {
-            foreach ($productArray as $key=>$product) {
-                $productArray[$key]["valid"] = true;
+            foreach ($productArray["products"] as $key=>$product) {
+                $productArray["products"][$key]["valid"] = true;
                 if (strlen($product["name"]) > self::MAXCN22NAMECHAR) {
-                    $productArray[$key]["valid"] = false;
-                    $productArray[$key]["message"][] = "NameTooLong";
+                    $productArray["products"][$key]["valid"] = false;
+                    $productArray["products"][$key]["message"] = "NameTooLong";
+                    $productArray["products"][$key]["maxlength"] = self::MAXCN22NAMECHAR;
+                    
                 }
             }
         } else {
             foreach ($productArray as $key=>$product) {
-                $productArray[$key]["valid"] = true;
+                $productArray["products"][$key]["valid"] = true;
                 if (strlen($product["name"]) > self::MAXCN23NAMECHAR) {
-                    $productArray[$key]["valid"] = false;
-                    $productArray[$key]["message"][] = "NameTooLong";
+                    $productArray["products"][$key]["valid"] = false;
+                    $productArray["products"][$key]["message"] = "NameTooLong";
+                    $productArray["products"][$key]["maxlength"] = self::MAXCN23NAMECHAR;
                 }
             }
         }
@@ -57,7 +60,7 @@ class CustomsManager {
         if (sizeof($productArray)<=self::MAXCN22PRODUCTS) {
             $value = 0;
             foreach ($productArray as $product) {
-                $value += $product["unitGrossPaid"] * $product["salesQty"];
+                $value += ($product["value"]["value"]/$product["value"]["exchangeRate"]) * $product["salesQty"];
             }
             if ($value<=self::MAXCN22VALUE) {
                 $cn22=true;
