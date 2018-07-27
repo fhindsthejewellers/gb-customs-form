@@ -100,7 +100,7 @@ class CustomsFormCN22 extends CustomsForm {
             $this->pdf->SetFont('Courier','',8);
             $this->pdf->Cell(20,0,$mass,0,0);
             $this->pdf->SetFont('Courier','',8);
-            $this->pdf->Cell(16,0,$value.$product["value"]["currency"],1,0);
+            $this->pdf->Cell(16,0,$value.$product["value"]["currency"],0,0);
             
         }
         $this->pdf->SetXY(3,76.7);
