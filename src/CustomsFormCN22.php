@@ -54,7 +54,7 @@ class CustomsFormCN22 extends CustomsForm {
     protected function WriteTotalValue() {
         $this->pdf->SetXY(82,74);
         $this->pdf->SetFont('Courier','',8);
-        $this->pdf->Cell(15,5,$this->totalValue,0,2);
+        $this->pdf->Cell(15,5,round($this->totalValue,2),0,2);
         $this->pdf->Cell(15,0,$this->totalValueCurrency,0,0);
     }
     
@@ -100,7 +100,7 @@ class CustomsFormCN22 extends CustomsForm {
             $this->pdf->SetFont('Courier','',8);
             $this->pdf->Cell(20,0,$mass,0,0);
             $this->pdf->SetFont('Courier','',8);
-            $this->pdf->Cell(16,0,$value.$product["value"]["currency"],0,0);
+            $this->pdf->Cell(16,0,round($value,2).$product["value"]["currency"],0,0);
             
         }
         $this->pdf->SetXY(3,76.7);

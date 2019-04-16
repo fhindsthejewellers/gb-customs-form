@@ -101,7 +101,7 @@ class CustomsFormCN23 extends CustomsForm {
     protected function WritePostalCharge() {
         $this->pdf->SetFont('Courier','',10);
         $this->pdf->SetXY(240,135);
-        $this->pdf->Cell(57,0,$this->shippingCost." ".$this->shippingCurrency,0,0);
+        $this->pdf->Cell(57,0,round($this->shippingCost,2)." ".$this->shippingCurrency,0,0);
     }
     
     protected function WriteImporterContact() {
@@ -173,7 +173,7 @@ class CustomsFormCN23 extends CustomsForm {
     protected function WriteTotalValue() {
         $this->pdf->SetXY(178,131);
         $this->pdf->SetFont('Courier','',8);
-        $this->pdf->Cell(15,5,$this->totalValue,0,2);
+        $this->pdf->Cell(15,5,round($this->totalValue,2),0,2);
         $this->pdf->Cell(15,0,$this->totalValueCurrency,0,0);
     }
     
@@ -211,7 +211,7 @@ class CustomsFormCN23 extends CustomsForm {
                 $this->pdf->SetFont('Courier','',8);
                 $this->pdf->Cell(31.5,0,$mass,0,0);
                 $this->pdf->SetFont('Courier','',8);
-                $this->pdf->Cell(31.5,0,$value.$currency,0,0);
+                $this->pdf->Cell(31.5,0,round($value,2).$currency,0,0);
                 if ($this->goodsType==self::MERCHANDISE or $this->goodsType==self::COMMERCIALSAMPLE or $this->goodsType==self::OTHER) {
                     $this->pdf->SetFont('Courier','',8);
                     $this->pdf->Cell(44,0,substr($product["intrastat_code"],0,6),0,0);
@@ -262,7 +262,7 @@ class CustomsFormCN23 extends CustomsForm {
             $this->pdf->SetFont('Courier','',8);
             $this->pdf->Cell(31.5,0,$mass,0,0);
             $this->pdf->SetFont('Courier','',8);
-            $this->pdf->Cell(31.5,0,$value.$product["value"]["currency"],0,0);
+            $this->pdf->Cell(31.5,0,round($value,2).$product["value"]["currency"],0,0);
             if ($this->goodsType==self::MERCHANDISE or $this->goodsType==self::COMMERCIALSAMPLE or $this->goodsType==self::OTHER) {
                 $this->pdf->SetFont('Courier','',8);
                 $this->pdf->Cell(44,0,substr($product["intrastat_code"],0,6),0,0);

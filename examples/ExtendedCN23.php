@@ -100,6 +100,7 @@ $details = array(
     "shippingCurrency" => "GBP",
     "invoice" => "123456",
     "importerContact" => "larry@gov.uk",
+    "parcelMass" => 0.5,
     "toAddress" => array(
         "name" => "Larry the Cat",
         "business" => "Chief Mouser to the Cabinet Office",
