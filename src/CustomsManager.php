@@ -1,7 +1,7 @@
 <?php namespace fhindsthejewellers\GBCustomsForm;
 
 class CustomsManager {
-    const MAXCN22PRODUCTS = 4;
+    const MAXCN22PRODUCTS = 6;
     const MAXCN22VALUE = 270;
     const MAXCN22NAMECHAR = 35;
     const MAXCN23NAMECHAR = 55;

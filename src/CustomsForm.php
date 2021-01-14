@@ -11,6 +11,10 @@ abstract class CustomsForm {
     protected $totalValue=0; //In kg
     protected $totalValueCurrency; //In kg
     
+    protected $fromAddress;
+    
+    protected $vatNumber;
+    
     const OTHER = 0;
     const GIFT = 1;
     const DOCUMENTS = 2;
@@ -45,6 +49,12 @@ abstract class CustomsForm {
         } else {
             $this->date=date("Y-m-d");
         }
+        
+        if (isset($nonProductDetails["vatNumber"])) {
+            $this->vatNumber=$nonProductDetails["vatNumber"];
+        } else {
+            $this->vatNumber="";
+        }
     }
     
     public function BuildForm(array $products) {
@@ -53,11 +63,14 @@ abstract class CustomsForm {
         $this->SignAndDate();
         $this->WriteTotalWeight();
         $this->WriteTotalValue();
+        $this->WriteAddresses();
     }
     
     public function GetPDF() : \FPDF {
         return $this->pdf;
     }
+    
+    abstract protected function WriteAddresses();
     
     abstract protected function TickGoodsBox();
     

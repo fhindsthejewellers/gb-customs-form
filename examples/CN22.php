@@ -49,6 +49,15 @@ $products = array(
 $details = array(
     "signName" => "Dave Smith",
     "goodsType" => \fhindsthejewellers\GBCustomsForm\CustomsForm::MERCHANDISE,
+    "vatNumber" => "GB000000000",
+    "fromAddress" => array(
+        "name" => "Dave Smith",
+        "business" => "F Hinds Ltd",
+        "street" => "24 Park Road",
+        "city" => "Uxbridge",
+        "zip" => "UB8 1NH",
+        "country" => "GB"
+    ),
 
 
 );

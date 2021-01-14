@@ -5,7 +5,6 @@ class CustomsFormCN23 extends CustomsForm {
     protected $shippingCurrency;
     protected $invoice;
     protected $importerDetails;
-    protected $fromAddress;
     protected $toAddress;
     
     private $formPosition = array (100.5,107.5,115,123);
@@ -65,7 +64,6 @@ class CustomsFormCN23 extends CustomsForm {
         parent::BuildForm($products);
         $this->WritePostalCharge();
         $this->WriteInvoice();
-        $this->WriteAddresses();
         $this->WriteImporterContact();
         if (isset($this->overrun)) {
             $this->WriteOverrun();
